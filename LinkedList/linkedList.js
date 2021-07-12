@@ -16,7 +16,7 @@ class LinkedList {
     let node = this.head;
 
     while (node) {
-      result++;
+      result += 1;
       node = node.next;
     }
     return result;
