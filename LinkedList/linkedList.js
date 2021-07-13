@@ -60,6 +60,21 @@ class LinkedList {
     }
     return [null, null];
   }
+
+  remove(isMatch) {
+    const [matchedNode, previousNode] = this.findWithPrevious(isMatch);
+
+    if (!matchedNode) {
+      return null;
+    }
+
+    if (this.head === matchedNode) {
+      this.head = this.head.next;
+    } else {
+      previousNode.next = matchedNode.next;
+    }
+    return this;
+  }
 }
 
 module.exports = LinkedList;
