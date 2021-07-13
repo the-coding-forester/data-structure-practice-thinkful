@@ -27,15 +27,15 @@ class LinkedList {
     return this;
   }
 
-  insert(value) {
-    const newNode = new Node(value);
-
+  insert(value, isMatch = (node, index) => index === this.length - 1) {
     if (this.head) {
-      let tail = this.head;
-      while (tail.next) {
-        tail = tail.next;
+      const previousNode = this.find(isMatch);
+
+      if (!previousNode) {
+        throw new Error('No match found.');
       }
-      tail.next = newNode;
+
+      previousNode.next = new Node(value, previousNode.next);
     } else {
       this.insertAtHead(value);
     }
