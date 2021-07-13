@@ -43,16 +43,22 @@ class LinkedList {
   }
 
   find(isMatch) {
+    return this.findWithPrevious(isMatch)[0];
+  }
+
+  findWithPrevious(isMatch) {
     let index = 0;
+    let previous = null;
     let node = this.head;
     while (node) {
       if (isMatch(node, index)) {
-        return node;
+        return [node, previous];
       }
       index++;
+      previous = node;
       node = node.next;
     }
-    return null;
+    return [null, null];
   }
 }
 
