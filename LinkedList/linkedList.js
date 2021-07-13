@@ -73,7 +73,7 @@ class LinkedList {
     } else {
       previousNode.next = matchedNode.next;
     }
-    return this;
+    return matchedNode.value;
   }
 }
 
