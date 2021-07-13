@@ -26,6 +26,21 @@ class LinkedList {
     this.head = new Node(value, this.head);
     return this;
   }
+
+  insert(value) {
+    const newNode = new Node(value);
+
+    if (this.head) {
+      let tail = this.head;
+      while (tail.next) {
+        tail = tail.next;
+      }
+      tail.next = newNode;
+    } else {
+      this.insertAtHead(value);
+    }
+    return this;
+  }
 }
 
 module.exports = LinkedList;
