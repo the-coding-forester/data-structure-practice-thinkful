@@ -41,6 +41,19 @@ class LinkedList {
     }
     return this;
   }
+
+  find(isMatch) {
+    let index = 0;
+    let node = this.head;
+    while (node) {
+      if (isMatch(node, index)) {
+        return node;
+      }
+      index++;
+      node = node.next;
+    }
+    return null;
+  }
 }
 
 module.exports = LinkedList;
